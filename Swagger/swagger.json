@@ -1,0 +1,591 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "",
+    "version": "2",
+    "title": "Student"
+  },
+  "host": "localhost:3000",
+  "tags": [
+    {
+      "name": "create"
+    },
+    {
+      "name": "query"
+    },
+    {
+      "name": "update"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/CreateStudent": {
+      "post": {
+        "tags": [
+          "create"
+        ],
+        "summary": "add new student to database",
+        "description": "add new student to database",
+        "operationId": "add new student to database",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "first_name",
+            "in": "formData",
+            "description": "student's name",
+            "required": true,
+            "type": "string",
+            "default": "Tony"
+          },
+          {
+            "name": "last_name",
+            "in": "formData",
+            "description": "student's last name",
+            "required": true,
+            "type": "string",
+            "default": "Stark"
+          },
+          {
+            "name": "faculty_id",
+            "in": "formData",
+            "description": "student's faculty",
+            "required": true,
+            "type": "integer",
+            "default": 1
+          },
+          {
+            "name": "gender",
+            "in": "formData",
+            "description": "student's sex",
+            "required": true,
+            "type": "string",
+            "default": "M"
+          },
+          {
+            "name": "grade",
+            "in": "formData",
+            "description": "student's grade",
+            "required": true,
+            "type": "string",
+            "default": "1.99"
+          },
+          {
+            "name": "student_status",
+            "in": "formData",
+            "description": "student's status",
+            "required": true,
+            "type": "string",
+            "default": "Y"
+          },
+          {
+            "name": "create_by",
+            "in": "formData",
+            "description": "creator",
+            "required": true,
+            "type": "string",
+            "default": "Sthang"
+          },
+          {
+            "name": "update_by",
+            "in": "formData",
+            "description": "updator",
+            "required": true,
+            "type": "string",
+            "default": "isas"
+          },
+          {
+            "name": "work_status",
+            "in": "formData",
+            "description": "student's name",
+            "required": true,
+            "type": "string",
+            "default": "Y"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "properties": {
+                "statusCode": {
+                  "type": "string",
+                  "example": 201
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Create Success"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "properties": {
+                "statusCode": {
+                  "type": "string",
+                  "example": 400
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Bad Request"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "unAuthenticate",
+            "schema": {
+              "properties": {
+                "statusCode": {
+                  "type": "string",
+                  "example": 500
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Fail to Connect Database"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getStuById": {
+      "post": {
+        "tags": [
+          "query"
+        ],
+        "summary": "Query student's data from database with student id",
+        "description": "Query student's data from database with student id",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "formData",
+            "description": "student's id",
+            "required": true,
+            "type": "integer",
+            "default": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Created",
+            "schema": {
+              "properties": {
+                "statusCode": {
+                  "type": "string",
+                  "example": 200
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Query Success"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 10
+                    },
+                    "first_name": {
+                      "type": "string",
+                      "example": "dart"
+                    },
+                    "last_name": {
+                      "type": "string",
+                      "example": "vador"
+                    },
+                    "faculty_id": {
+                      "type": "number",
+                      "example": 3
+                    },
+                    "gender": {
+                      "type": "string",
+                      "example": "M"
+                    },
+                    "dmission_date": {
+                      "type": "string",
+                      "example": "2020-03-13T23:55:17.000Z"
+                    },
+                    "grade": {
+                      "type": "string",
+                      "example": 3.99
+                    },
+                    "student_status": {
+                      "type": "string",
+                      "example": "N"
+                    },
+                    "create_by": {
+                      "type": "string",
+                      "example": "Palpatine"
+                    },
+                    "create_date": {
+                      "type": "string",
+                      "example": "2020-03-13T23:55:17.000Z"
+                    },
+                    "update_by": {
+                      "type": "string",
+                      "example": "Palpatine"
+                    },
+                    "update_date": {
+                      "type": "string",
+                      "example": "2020-03-13T23:55:17.000Z"
+                    },
+                    "work_status": {
+                      "type": "string",
+                      "example": "N"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "properties": {
+                "statusCode": {
+                  "type": "string",
+                  "example": 400
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Bad Request"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "unAuthenticate",
+            "schema": {
+              "properties": {
+                "statusCode": {
+                  "type": "string",
+                  "example": 500
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Fail to Connect Database"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getAllStu": {
+      "post": {
+        "tags": [
+          "query"
+        ],
+        "summary": "Query student's data from database",
+        "description": "Query student's data from database",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "faculty_id",
+            "in": "formData",
+            "description": "faculty id",
+            "required": true,
+            "type": "integer",
+            "default": 0
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Created",
+            "schema": {
+              "properties": {
+                "statusCode": {
+                  "type": "string",
+                  "example": 200
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Query Success"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 10
+                      },
+                      "first_name": {
+                        "type": "string",
+                        "example": "dart"
+                      },
+                      "last_name": {
+                        "type": "string",
+                        "example": "vador"
+                      },
+                      "faculty_id": {
+                        "type": "number",
+                        "example": 3
+                      },
+                      "gender": {
+                        "type": "string",
+                        "example": "M"
+                      },
+                      "dmission_date": {
+                        "type": "string",
+                        "example": "2020-03-13T23:55:17.000Z"
+                      },
+                      "grade": {
+                        "type": "string",
+                        "example": 3.99
+                      },
+                      "student_status": {
+                        "type": "string",
+                        "example": "N"
+                      },
+                      "create_by": {
+                        "type": "string",
+                        "example": "Palpatine"
+                      },
+                      "create_date": {
+                        "type": "string",
+                        "example": "2020-03-13T23:55:17.000Z"
+                      },
+                      "update_by": {
+                        "type": "string",
+                        "example": "Palpatine"
+                      },
+                      "update_date": {
+                        "type": "string",
+                        "example": "2020-03-13T23:55:17.000Z"
+                      },
+                      "work_status": {
+                        "type": "string",
+                        "example": "N"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "properties": {
+                "statusCode": {
+                  "type": "string",
+                  "example": 400
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Bad Request"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "unAuthenticate",
+            "schema": {
+              "properties": {
+                "statusCode": {
+                  "type": "string",
+                  "example": 500
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Fail to Connect Database"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updateGrade": {
+      "post": {
+        "tags": [
+          "update"
+        ],
+        "summary": "Updata student's grade",
+        "description": "Updata student's grade",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "formData",
+            "description": "student's id",
+            "required": true,
+            "type": "integer",
+            "default": 1
+          },
+          {
+            "name": "grade",
+            "in": "formData",
+            "description": "student's grade",
+            "required": true,
+            "type": "string",
+            "default": "4.00"
+          },
+          {
+            "name": "update_by",
+            "in": "formData",
+            "description": "name who update student's grade",
+            "required": true,
+            "type": "string",
+            "default": "sthang"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Created",
+            "schema": {
+              "properties": {
+                "statusCode": {
+                  "type": "string",
+                  "example": 200
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Update Success"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "properties": {
+                "statusCode": {
+                  "type": "string",
+                  "example": 400
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Bad Request"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "unAuthenticate",
+            "schema": {
+              "properties": {
+                "statusCode": {
+                  "type": "string",
+                  "example": 500
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Fail to Connect Database"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/delete": {
+      "post": {
+        "tags": [
+          "update"
+        ],
+        "summary": "Change student's status",
+        "description": "Change student's status",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "formData",
+            "description": "student's id",
+            "required": true,
+            "type": "integer",
+            "default": 1
+          },
+          {
+            "name": "update_by",
+            "in": "formData",
+            "description": "name who update student's grade",
+            "required": true,
+            "type": "string",
+            "default": "sthang"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Created",
+            "schema": {
+              "properties": {
+                "statusCode": {
+                  "type": "string",
+                  "example": 200
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Delete Success"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "properties": {
+                "statusCode": {
+                  "type": "string",
+                  "example": 400
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Bad Request"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "unAuthenticate",
+            "schema": {
+              "properties": {
+                "statusCode": {
+                  "type": "string",
+                  "example": 500
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Fail to Connect Database"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
